@@ -1,0 +1,109 @@
+{
+  "aesthetics": {
+    "assets": "",
+    "cpu_threads": 2,
+    "device": "cpu",
+    "gpu": 0,
+    "python": "",
+    "sample_interval_seconds": 1.0,
+    "use_as_hard_gate": false
+  },
+  "camera": {
+    "anchor_rotation_deg": 6.0,
+    "anchor_translation_m": 0.09,
+    "angular_velocity_max_deg_s": 15.0,
+    "angular_velocity_p95_deg_s": 8.0,
+    "translation_velocity_max_m_s": 0.2,
+    "translation_velocity_p95_m_s": 0.1
+  },
+  "curation": {
+    "aesthetic_priority": true,
+    "distinct_recordings_per_group": true,
+    "length_priority": true,
+    "max_candidates_per_source": null,
+    "scene_cluster_cosine": 0.9,
+    "scene_grouping": "visual_cluster",
+    "top_k_per_scene_task": 3
+  },
+  "hand": {
+    "allow_explicit_single_hand_inference": false,
+    "border_fraction": 0.005,
+    "max_invalid_frames": 0,
+    "min_motion_palm_lengths": 0,
+    "min_span_width_fraction": 0.03,
+    "participant_overrides": {}
+  },
+  "motion_salience": null,
+  "motion_selection": {
+    "max_per_recording": 3,
+    "target_count": null
+  },
+  "paths": {},
+  "policy": {
+    "quality_status": "user-authorized relaxed quality thresholds; human review pending",
+    "require_atomic_event": false,
+    "selection": "longest_valid_windows_no_parent_subdivision",
+    "version": "relaxed6_combined_v3"
+  },
+  "rgb": {
+    "analysis_width": 640,
+    "grid_columns": 4,
+    "grid_rows": 3,
+    "mask_expand_fraction": 0.35,
+    "max_anchor_displacement_diag": 0.06,
+    "max_cache_mb": 8192,
+    "max_clipped_fraction": 0.3,
+    "max_fb_error_px": 1.0,
+    "max_features": 600,
+    "max_luma": 235.0,
+    "max_pair_displacement_diag": 0.004,
+    "max_photometric_error": 25.0,
+    "max_projection_roundtrip_error_px": 0.25,
+    "max_reprojection_error_px": 1.5,
+    "min_feature_span_fraction": 0.5,
+    "min_features": 40,
+    "min_first_global_laplacian": 80.0,
+    "min_first_hand_laplacian": 50.0,
+    "min_global_laplacian": 45.0,
+    "min_grid_cells": 6,
+    "min_grid_points": 16,
+    "min_hand_laplacian": 25.0,
+    "min_inlier_ratio": 0.65,
+    "min_inliers": 24,
+    "min_luma": 25.0,
+    "roi_size": 128,
+    "temporal_hand_quality": {
+      "max_consecutive_frames": 3,
+      "max_fraction": 0.05,
+      "nominal_min_laplacian": 35.0
+    }
+  },
+  "runtime": {
+    "cache_budget_root": "budget",
+    "cache_min_free_gib": 2,
+    "cache_root": "cache",
+    "cv_threads": 1,
+    "export_fastpath": true,
+    "export_retry_limit": 2,
+    "export_workers": 1,
+    "ffmpeg_threads": 1,
+    "free_space_guards": [],
+    "max_cache_gb": 16,
+    "native_packet_remux": true,
+    "output_root": "output",
+    "report_interval_seconds": 60,
+    "sample_root": "samples",
+    "source_batch_size": 512,
+    "weighted_cache_admission": true,
+    "workers": 1
+  },
+  "selection": {
+    "exact_frames": null,
+    "frame_multiple": 80,
+    "frame_offset": 1,
+    "max_frames": null,
+    "min_frames": 161,
+    "near_duplicate_hamming": 4,
+    "target_count": null
+  }
+}

@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "handworldbench"
+version = "1.0.0"
+description = "Evaluation of hand interaction video generation"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "scipy>=1.10", "Pillow>=9", "jsonschema>=4.23"]
+
+[project.scripts]
+handworldbench = "handworldbench.cli.main:main"
+
+[tool.setuptools.packages.find]
+include = ["handworldbench*"]
+
+
+[tool.setuptools.package-data]
+handworldbench = ["_vendor/**/*"]
+
+[tool.setuptools.exclude-package-data]
+"*" = ["**/__pycache__/*", "**/*.pyc", "**/*.pyo"]

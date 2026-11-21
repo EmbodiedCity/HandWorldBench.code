@@ -1,0 +1,65 @@
+{
+  "cache_root": "${CACHE_ROOT}",
+  "models_root": "${MODELS_ROOT}",
+  "classic_data": "${CLASSIC_DATA}",
+  "default_python": "${MAIN_PYTHON}",
+  "python": {
+    "musiq": "${MUSIQ_PYTHON}",
+    "segmentation": "${SAM3_PYTHON}",
+    "background": "${SAM3_PYTHON}",
+    "anatomy": "${METRICS_PYTHON}",
+    "jepa": "${METRICS_PYTHON}"
+  },
+  "models": {
+    "hand_detector": "${MODELS_ROOT}/grounding-dino-tiny",
+    "keypoints": "${MODELS_ROOT}/rtmpose-hand/end2end.onnx",
+    "vision": "${MODELS_ROOT}/Qwen3-VL-4B-Instruct",
+    "judge": "${MODELS_ROOT}/Qwen3.5-9B",
+    "state_judge": "${MODELS_ROOT}/Qwen3.5-9B",
+    "sam3": {
+      "source": "${SOURCE_ROOT}/handworldbench/_vendor/engine/engines/classic/metric_suite/sources/SAM3",
+      "checkpoint": "${MODELS_ROOT}/sam3/sam3.pt",
+      "vocabulary": "${SOURCE_ROOT}/handworldbench/_vendor/engine/engines/classic/metric_suite/sources/OpenAI-CLIP/clip/bpe_simple_vocab_16e6.txt.gz"
+    },
+    "clip": "${MODELS_ROOT}/clip/ViT-B-32.pt",
+    "dinov3": "${MODELS_ROOT}/dinov3/dinov3_vits16_pretrain_lvd1689m.pth",
+    "musiq": "${MODELS_ROOT}/musiq/spaq_ckpt.npz",
+    "pavrm": "${MODELS_ROOT}/qwen3vl-a3b-visual-plausibility",
+    "da3": "${MODELS_ROOT}/DA3-GIANT-1.1",
+    "hand_morphology": "${MODELS_ROOT}/hand_morphology/vbench2_hand.pth",
+    "jepa": {
+      "encoder": "${MODELS_ROOT}/jepa/vith16.pth.tar",
+      "probe": "${MODELS_ROOT}/jepa/ssv2-probe.pth.tar"
+    }
+  },
+  "sampling": {
+    "frames": 16
+  },
+  "batch": {
+    "hand_detector": 8,
+    "keypoints": 32
+  },
+  "cpu_workers": 4,
+  "scheduler_poll_seconds": 0.1,
+  "worker_poll_seconds": 0.05,
+  "backend_env": {},
+  "env": {
+    "OMP_NUM_THREADS": "4",
+    "OPENBLAS_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "4",
+    "HANDWORLDBENCH_CLASSIC_DATA_ROOT": "${CLASSIC_DATA}",
+    "HANDWORLDBENCH_MODEL_ROOT": "${MODELS_ROOT}",
+    "HANDWORLDBENCH_HAND_FINDER_PYTHON": "${MAIN_PYTHON}",
+    "PYTHONNOUSERSITE": "1",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1"
+  },
+  "backend_resources": {
+    "pavrm": {
+      "gpu_count": 1,
+      "memory_mib_per_gpu": 76000
+    }
+  },
+  "python_paths": [],
+  "musiq_python_paths": []
+}

@@ -1,0 +1,39 @@
+{
+  "version": "memory_gate_facts_v1",
+  "roi_protocol": "original_SAM3_interaction_roi_v2",
+  "gate_thinking_budget": 4096,
+  "facts_pixels": 1048576,
+  "facts_decoding": "natural_greedy_max32",
+  "cache_normalization": "exact full content binding, preserve source binding, explicitly reused, no score selection",
+  "feature_checklist_index": {
+    "source": "archive_ref:863a19a8ed53228e9e66/index.json",
+    "sha256": "27eaffdd8324670bebdefd37c8cde477579aa11a1c83a5e04ab0820ad09acd56"
+  },
+  "gate_decoding": {
+    "close_ids": [
+      248069
+    ],
+    "separator_ids": [
+      271
+    ],
+    "label_ids": [
+      16,
+      17,
+      18
+    ],
+    "eos_id": 248046,
+    "decoding": {
+      "thinking": true,
+      "thinking_budget": 4096,
+      "max_new_tokens": 4100,
+      "final_selection": "argmax over all declared labels, unpenalized logits",
+      "forced_closing": "after budget only; never score-triggered",
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "presence_penalty": 1.5,
+      "seed": 1729
+    },
+    "requested_final": "single numeric grade; no explanation"
+  }
+}

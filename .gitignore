@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.envs/
+.venv*/
+models/
+cache/
+runtime_cache/
+runs/
+HandWorldBench-data/
+evaluation/configs/runtime.json
+data_pipeline/controls/third_party/
+outputs/

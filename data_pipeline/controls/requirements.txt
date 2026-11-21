@@ -1,0 +1,11 @@
+# Control-signal rendering (CPU). Tested with Python 3.12 on Ubuntu 24.04, ffmpeg 6.1.1 (libx264 core 164).
+# Install numpy first, then the rest with --no-build-isolation (chumpy's setup.py imports numpy/pip):
+#   pip install numpy==1.26.4 setuptools wheel
+#   pip install --no-build-isolation -r requirements.txt
+numpy==1.26.4
+scipy==1.15.2
+numba==0.59.1
+opencv-python-headless==4.10.0.84
+torch==2.7.0
+smplx==0.1.28
+chumpy==0.70

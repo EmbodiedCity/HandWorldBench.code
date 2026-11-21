@@ -1,0 +1,16 @@
+# Data-pipeline environment (screening, annotation client, tools); pinned versions for Python 3.12.
+certifi==2026.10.23
+charset-normalizer==3.5.2
+h5py==3.16.0
+idna==3.20
+lz4==4.4.5
+mcap==1.6.0
+numpy==2.5.5
+opencv-python-headless==5.1.0.95
+pillow==13.0.0
+protobuf==7.36.2
+pyarrow==26.0.1
+PyYAML==6.0.3
+requests==2.34.2
+urllib3==2.8.0
+zstandard==0.25.0

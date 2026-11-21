@@ -1,0 +1,202 @@
+{
+  "version": "handworldbench.operation7.v1.0.0",
+  "source": "HandWorldBench seven-family operation taxonomy",
+  "base_families": 7,
+  "base_subtypes": 22,
+  "evidence_extensions": [
+    {
+      "code": "M5",
+      "label": "Push / Roll",
+      "why": "Pushing or rolling an object without picking it up (e.g. rolling a ball through a gap) is not Pick / Place. The extension remains within Move & Arrange."
+    }
+  ],
+  "policy": {
+    "primary": "One dominant operation family/subtype per clip for a mutually exclusive census.",
+    "additional": "Only distinct, visibly supported and task-salient operations; not every reach/grasp used to perform another operation.",
+    "paired_labels": "Slash-separated labels name an operation group; they do not assert both actions occur.",
+    "task_success": "Operation labels do not declare task completion, calibration, atomic-event boundaries or physical correctness.",
+    "evidence": "Labels are assigned from the caption, the task text and sampled RGB frames; sampled frames are not an exhaustive frame-by-frame review of the video."
+  },
+  "families": [
+    {
+      "id": "move_arrange",
+      "label_en": "Move & Arrange",
+      "subtypes": [
+        {
+          "code": "M1",
+          "id": "pick_place",
+          "label_en": "Pick / Place",
+          "definition": "Grasp, lift, carry or place a whole object; placement success is not implied."
+        },
+        {
+          "code": "M2",
+          "id": "transfer_handover",
+          "label_en": "Transfer / Handover",
+          "definition": "Whole-object hand-to-hand or agent-to-agent handover, not a spoon moving loose contents."
+        },
+        {
+          "code": "M3",
+          "id": "sort_stack",
+          "label_en": "Sort / Stack",
+          "definition": "Select, group, order, stack or align multiple whole items; no exact sorted count is implied."
+        },
+        {
+          "code": "M4",
+          "id": "reorient",
+          "label_en": "Reorient",
+          "definition": "Reorient or reposition a whole object in hand, including deliberate regrasping; not turning a device joint."
+        },
+        {
+          "code": "M5",
+          "id": "push_roll",
+          "label_en": "Push / Roll",
+          "definition": "Evidence-based extension: deliberate non-prehensile whole-object pushing, rolling or flicking."
+        }
+      ]
+    },
+    {
+      "id": "shape_fabricate",
+      "label_en": "Shape & Fabricate",
+      "subtypes": [
+        {
+          "code": "S1",
+          "id": "fold_bend",
+          "label_en": "Fold / Bend",
+          "definition": "Reshape flexible material by folding, bending, creasing, coiling or twisting; not articulated tool motion."
+        },
+        {
+          "code": "S2",
+          "id": "cut_pinch",
+          "label_en": "Cut / Pinch",
+          "definition": "Material cutting, trimming, peeling, splitting or shape-changing pinching; excludes ordinary grasp pinches and scissors closing in empty air."
+        },
+        {
+          "code": "S3",
+          "id": "sew_crochet",
+          "label_en": "Sew / Crochet",
+          "definition": "Needle/hook/yarn work along textile or stitch structures, including local stitching or unpicking; excludes merely holding loose cord."
+        }
+      ]
+    },
+    {
+      "id": "assemble_connect",
+      "label_en": "Assemble & Connect",
+      "subtypes": [
+        {
+          "code": "A1",
+          "id": "insert_join",
+          "label_en": "Insert / Join",
+          "definition": "Align or fit a part at an interface, insert or join components, including partial attempts; not ordinary storage placement."
+        },
+        {
+          "code": "A2",
+          "id": "fasten_plug",
+          "label_en": "Fasten / Plug",
+          "definition": "Operate an identifiable fastener, nail or electrical plug; screwdriver presence alone is insufficient."
+        },
+        {
+          "code": "A3",
+          "id": "tie",
+          "label_en": "Tie",
+          "definition": "Cross, wind or adjust a retaining cord, tie, lace or binding; no completed knot is inferred."
+        }
+      ]
+    },
+    {
+      "id": "operate_adjust",
+      "label_en": "Operate & Adjust",
+      "subtypes": [
+        {
+          "code": "O1",
+          "id": "open_close",
+          "label_en": "Open / Close",
+          "definition": "Open, close or locally attempt a closure/lid/package; an already-open package held for inspection is not opening."
+        },
+        {
+          "code": "O2",
+          "id": "turn_press",
+          "label_en": "Turn / Press",
+          "definition": "Operate controls, rotate articulated parts or make visible local fine adjustments through turning/pressing; does not infer a hidden completed join."
+        },
+        {
+          "code": "O3",
+          "id": "slide_unfold",
+          "label_en": "Slide / Unfold",
+          "definition": "Slide a mechanism, feed/draw a flexible length, turn pages, or unfold a pre-existing articulated/prefolded structure."
+        }
+      ]
+    },
+    {
+      "id": "transfer_mix",
+      "label_en": "Transfer & Mix",
+      "subtypes": [
+        {
+          "code": "T1",
+          "id": "scoop_pour",
+          "label_en": "Scoop / Pour",
+          "definition": "Move loose contents with a scoop/spoon or by tilting a container; not moving an empty spoon as an object."
+        },
+        {
+          "code": "T2",
+          "id": "sprinkle_pump",
+          "label_en": "Sprinkle / Pump",
+          "definition": "Sprinkle, spray, pump or squeeze material out of a dispenser; dispensing amount or physical success is not inferred."
+        },
+        {
+          "code": "T3",
+          "id": "stir",
+          "label_en": "Stir",
+          "definition": "Move a utensil through contents with repeated stirring/mixing motions; no homogeneity claim."
+        }
+      ]
+    },
+    {
+      "id": "clean_treat",
+      "label_en": "Clean & Treat",
+      "subtypes": [
+        {
+          "code": "C1",
+          "id": "wipe_brush",
+          "label_en": "Wipe / Brush",
+          "definition": "Wipe, rub or brush a surface with hands, tissue, cloth or brush; cleanliness improvement is not implied."
+        },
+        {
+          "code": "C2",
+          "id": "coat",
+          "label_en": "Coat",
+          "definition": "Apply/spread a coating to a target surface; do not infer coating just from a held tube or background paint."
+        },
+        {
+          "code": "C3",
+          "id": "polish",
+          "label_en": "Polish",
+          "definition": "Abrasive surface finishing, filing, polishing or sharpening strokes; excludes nonabrasive ordinary wiping."
+        }
+      ]
+    },
+    {
+      "id": "inspect_mark",
+      "label_en": "Inspect & Mark",
+      "subtypes": [
+        {
+          "code": "I1",
+          "id": "observe",
+          "label_en": "Observe",
+          "definition": "Present, inspect, read or visually document an object/label without asserting unseen mental attention or readable exact text."
+        },
+        {
+          "code": "I2",
+          "id": "measure_probe",
+          "label_en": "Measure / Probe",
+          "definition": "Use measurement jaws or electrical/contact probes; mere generic tool contact does not establish measurement."
+        },
+        {
+          "code": "I3",
+          "id": "write_mark",
+          "label_en": "Write / Mark",
+          "definition": "Make physical pen/marker marks; digital button/keyboard input is grouped under operating controls."
+        }
+      ]
+    }
+  ]
+}

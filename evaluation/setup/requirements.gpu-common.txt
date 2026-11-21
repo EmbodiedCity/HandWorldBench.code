@@ -1,0 +1,9 @@
+# Install over the NVIDIA PyTorch 25.03 environment. Keep its CUDA-enabled
+# PyTorch, torchvision, Triton and matching GPU libraries.
+numpy==1.26.4
+scipy==1.15.2
+Pillow==11.1.0
+opencv-python-headless==4.11.0.86
+einops==0.8.2
+tqdm==4.67.1
+

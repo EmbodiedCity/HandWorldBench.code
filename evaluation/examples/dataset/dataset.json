@@ -1,0 +1,10 @@
+{
+  "catalog": "catalog.json",
+  "standard_output_protocol": {
+    "name": "reference_native",
+    "time_mapping": {"kind": "identity"},
+    "spatial_mapping": {"kind": "identity"},
+    "match_reference_dimensions": true,
+    "match_reference_timeline": true
+  }
+}

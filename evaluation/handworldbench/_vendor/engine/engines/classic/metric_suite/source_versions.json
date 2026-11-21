@@ -1,0 +1,30 @@
+{
+  "SAM3": {
+    "repository": "https://github.com/facebookresearch/sam3",
+    "commit": "0570b3a5be9c4e694f23d85232fb55f4a6f1f7fc"
+  },
+  "DINOv3": {
+    "repository": "https://github.com/facebookresearch/dinov3",
+    "commit": "6876159a11b4df116f30f667f8c9888617df0751"
+  },
+  "OpenAI-CLIP": {
+    "repository": "https://github.com/openai/CLIP",
+    "commit": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6"
+  },
+  "VBench": {
+    "repository": "https://github.com/Vchitect/VBench",
+    "commit": "fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490"
+  },
+  "VBench2-Hand": {
+    "repository": "https://github.com/Vchitect/VBench",
+    "commit": "fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490"
+  },
+  "JEDi": {
+    "repository": "https://github.com/oooolga/JEDi",
+    "commit": "e64f3fe8572b89ea904d161def44b419024e31a0"
+  },
+  "WorldArena": {
+    "repository": "https://github.com/tsinghua-fib-lab/WorldArena",
+    "commit": "2da2ae253b8637ba9de3afc7bea4e087f778ee4d"
+  }
+}

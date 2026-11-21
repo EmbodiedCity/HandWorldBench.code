@@ -1,0 +1,55 @@
+[
+  {
+    "case_id": "example",
+    "category": "human",
+    "reference": {
+      "video": "gt/example.mp4",
+      "sha256": "3e692b4c7313ad9209de9bc0b9730c2a836000dd99e10c30fd07f4f56274021c",
+      "width": 96,
+      "height": 64,
+      "fps": 12,
+      "frame_count": 13
+    },
+    "geometry": {
+      "path": "gt/example.npz",
+      "points_key": "points_2d",
+      "time_key": "time_s",
+      "time_origin": "first_sample",
+      "hand_valid_key": "hand_valid",
+      "hand_order": [
+        "left",
+        "right"
+      ],
+      "joint_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "joint_mapping_status": "verified"
+    },
+    "applicability": {
+      "musiq": "applicable",
+      "pose_control": "applicable",
+      "keypoint_coverage": "applicable"
+    },
+    "annotations": {}
+  }
+]

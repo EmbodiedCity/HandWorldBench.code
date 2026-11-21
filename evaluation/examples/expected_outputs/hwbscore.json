@@ -1,0 +1,75 @@
+[
+ {
+  "model": "reference",
+  "category": "all",
+  "HWBScore": 74.4068654235544,
+  "status": "ok",
+  "group_scores": {
+   "visual_quality": 0.7546400524192386,
+   "hand_fidelity": 0.6532639242586649,
+   "appearance_consistency": 0.8926190598464707,
+   "instruction_following": 0.8666666666666667,
+   "physical_interaction": 0.7555555555555555,
+   "temporal_coherence": 0.5416666666666667
+  },
+  "not_applicable_metrics": [],
+  "missing_common_metrics": [],
+  "mixed_protocol_metrics": []
+ },
+ {
+  "model": "reference",
+  "category": "human",
+  "HWBScore": 74.23536698804638,
+  "status": "ok",
+  "group_scores": {
+   "visual_quality": 0.7322863796657986,
+   "hand_fidelity": 0.6934585504496612,
+   "appearance_consistency": 0.8950437558339904,
+   "instruction_following": 0.7999999999999999,
+   "physical_interaction": 0.9166666666666667,
+   "temporal_coherence": 0.4166666666666667
+  },
+  "not_applicable_metrics": [],
+  "missing_common_metrics": [],
+  "mixed_protocol_metrics": []
+ },
+ {
+  "model": "reference",
+  "category": "handson",
+  "HWBScore": 63.99527408922382,
+  "status": "ok",
+  "group_scores": {
+   "visual_quality": 0.776152669843038,
+   "hand_fidelity": 0.5666975973953484,
+   "appearance_consistency": 0.8635328447817098,
+   "instruction_following": 0.8,
+   "physical_interaction": 0.3333333333333333,
+   "temporal_coherence": 0.5
+  },
+  "not_applicable_metrics": [
+   "hand_morphology"
+  ],
+  "missing_common_metrics": [],
+  "mixed_protocol_metrics": []
+ },
+ {
+  "model": "reference",
+  "category": "real_robot",
+  "HWBScore": 72.62853038586935,
+  "status": "ok",
+  "group_scores": {
+   "visual_quality": 0.7774142528374989,
+   "hand_fidelity": 0.4267724469170914,
+   "appearance_consistency": 0.9035251233975717,
+   "instruction_following": 1.0,
+   "physical_interaction": 0.75,
+   "temporal_coherence": 0.5
+  },
+  "not_applicable_metrics": [
+   "hand_morphology",
+   "memory_consistency"
+  ],
+  "missing_common_metrics": [],
+  "mixed_protocol_metrics": []
+ }
+]

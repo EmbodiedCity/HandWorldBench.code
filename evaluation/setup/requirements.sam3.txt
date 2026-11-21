@@ -1,0 +1,9 @@
+-r requirements.gpu-common.txt
+ftfy==6.1.1
+huggingface-hub==0.35.3
+iopath==0.1.10
+portalocker==3.2.0
+protobuf==4.24.4
+safetensors==0.5.3
+timm==1.0.22
+

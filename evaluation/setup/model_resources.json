@@ -1,0 +1,82 @@
+{
+  "layout_root": "models",
+  "model_entries": {
+    "hand_detector": {
+      "target": "grounding-dino-tiny",
+      "upstream": "https://huggingface.co/IDEA-Research/grounding-dino-tiny",
+      "reference_config_sha256": "eec82c5ab66e16df12a9a212e68ac011779927c2536cf9078658e35d85f0c67a",
+      "revision": "a2bb814dd30d776dcf7e30523b00659f4f141c71",
+      "reference_model_safetensors_sha256": "1a2412ef99bd74bcd3c2a246fa1e48581f8889a1300c9051974741314fc042f3"
+    },
+    "keypoints": {
+      "target": "rtmpose-hand/end2end.onnx",
+      "upstream_archive": "https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/onnx_sdk/rtmpose-m_simcc-hand5_pt-aic-coco_210e-256x256-74fb594_20230320.zip",
+      "reference_sha256": "39e858936bca0f94c09847d4e70b68a51d6c0adac61f36b457fcadb54621cd29"
+    },
+    "vision": {
+      "target": "Qwen3-VL-4B-Instruct",
+      "upstream": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct",
+      "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+      "reference_config_sha256": "edac7703329133edfc53e46ac0081835144c99d7eebf28b71c732694d435224d"
+    },
+    "judge": {
+      "target": "Qwen3.5-9B",
+      "also_used_by": "state_judge",
+      "upstream": "https://huggingface.co/Qwen/Qwen3.5-9B",
+      "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "reference_config_sha256": "d0883072e01861ed0b2d47be3c16c36a8e81c224c7ffaa310c6558fb3f932b05"
+    },
+    "sam3.checkpoint": {
+      "target": "sam3/sam3.pt",
+      "upstream": "https://huggingface.co/facebook/sam3",
+      "revision": "3c879f39826c281e95690f02c7821c4de09afae7",
+      "reference_sha256": "9999e2341ceef5e136daa386eecb55cb414446a00ac2b55eb2dfd2f7c3cf8c9e"
+    },
+    "clip": {
+      "target": "clip/ViT-B-32.pt",
+      "upstream": "https://openaipublic.azureedge.net/clip/models/40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af/ViT-B-32.pt",
+      "reference_sha256": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af"
+    },
+    "dinov3": {
+      "target": "dinov3/dinov3_vits16_pretrain_lvd1689m.pth",
+      "upstream": "https://github.com/facebookresearch/dinov3#pretrained-models",
+      "reference_sha256": "08c60483bc63c04f533611e34bf70b120eedb7240f469bc16e9e20bf344b941d",
+      "upstream_weight_request": "https://ai.meta.com/resources/models-and-libraries/dinov3-downloads/",
+      "upstream_filename": "dinov3_vits16_pretrain_lvd1689m-08c60483.pth"
+    },
+    "musiq": {
+      "target": "musiq/spaq_ckpt.npz",
+      "upstream": "https://storage.googleapis.com/gresearch/musiq/spaq_ckpt.npz?generation=1638397900698348",
+      "reference_sha256": "416581bd53dfa656dc4b6d5ee8747b06ddd60021946164152bad9f0e1161d077"
+    },
+    "pavrm": {
+      "target": "qwen3vl-a3b-visual-plausibility",
+      "upstream": "https://huggingface.co/meituan-longcat/WBench-weights",
+      "upstream_subdirectory": "qwen3vl-a3b-visual-plausibility",
+      "revision": "1c5fde9aed33c2659a620e244d0151b7741e237d",
+      "reference_config_sha256": "f9ef201947c8d9fa0e2630b66a97e071f4be9e0b33b7e8f98c6034b2fc1ac1eb"
+    },
+    "da3": {
+      "target": "DA3-GIANT-1.1",
+      "upstream": "https://huggingface.co/meituan-longcat/WBench-weights",
+      "upstream_subdirectory": "DA3-GIANT-1.1",
+      "revision": "1c5fde9aed33c2659a620e244d0151b7741e237d",
+      "reference_config_sha256": "74626a50d6dee2a11820291a4305c1a34aa5adc4f7260908bbdbc9a939ba8e93"
+    },
+    "hand_morphology": {
+      "target": "hand_morphology/vbench2_hand.pth",
+      "upstream": "https://huggingface.co/Vchitect/VBench-2.0_models/resolve/ebdeff2bd48e113f76db9ad1d5b59c8df3456d8e/Human_Anatomy/anomaly_detector/hand.pth",
+      "reference_sha256": "b13d4522f4b5441925e4e25983013c5a9a8643ff99753732c8a64f1917b6d6a8"
+    },
+    "jepa.encoder": {
+      "target": "jepa/vith16.pth.tar",
+      "upstream": "https://dl.fbaipublicfiles.com/jepa/vith16/vith16.pth.tar",
+      "reference_sha256": "6fa02687973a8337c00d999ee3a17d539a0224c4c89b862150e65cbdb2f67b61"
+    },
+    "jepa.probe": {
+      "target": "jepa/ssv2-probe.pth.tar",
+      "upstream": "https://dl.fbaipublicfiles.com/jepa/vith16/ssv2-probe.pth.tar",
+      "reference_sha256": "133a6909fe46d464940176e0a2c9e0f08c256a1423be1191538083063118629a"
+    }
+  }
+}

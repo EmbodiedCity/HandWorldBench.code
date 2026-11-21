@@ -1,0 +1,21 @@
+{
+  "model_config": "@HANDWORLDBENCH_ROOT@/engines/state_four/configs/model.json",
+  "memory_protocol": "@HANDWORLDBENCH_ROOT@/engines/state_four/configs/memory_protocol.json",
+  "reuse_memory_cache": false,
+  "metrics": [
+    "state_progression",
+    "evolution_correctness",
+    "state_regulation",
+    "memory_consistency"
+  ],
+  "cases": [],
+  "sam3": {
+    "source_root": "@HANDWORLDBENCH_ROOT@/engines/new_aux/metric_suite/sources/SAM3",
+    "weights": "@HANDWORLDBENCH_ROOT@/runtime_data/classic/metric_suite/weights/sam3/sam3.pt",
+    "bpe": "@HANDWORLDBENCH_ROOT@/runtime_data/classic/metric_suite/assets/sam3/bpe_simple_vocab_16e6.txt.gz",
+    "confidence_threshold": 0.5
+  },
+  "hand_finder": {
+    "device": "cuda:0"
+  }
+}

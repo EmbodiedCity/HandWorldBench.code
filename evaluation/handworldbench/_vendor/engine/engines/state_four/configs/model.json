@@ -1,0 +1,23 @@
+{
+  "model_manifest": {
+    "path": "@HANDWORLDBENCH_ROOT@/resources/models/Qwen3.5-9B"
+  },
+  "decoding": {
+    "thinking": true,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "presence_penalty": 1.5,
+    "repetition_penalty": 1.0,
+    "seed": 1729,
+    "max_new_tokens": 8192,
+    "format_attempts": 2
+  },
+  "pixels": {
+    "max_per_image": 1048576,
+    "min_per_image": 262144,
+    "source": "direct original-video crop, no intermediate shrink"
+  },
+  "version": "state_judge_v1",
+  "shared_across_metrics": true
+}
