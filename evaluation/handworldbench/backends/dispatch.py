@@ -60,6 +60,7 @@ def observe(task,models,folder):
     native_cfg.setdefault('background_foreground_prompts',(['hand','arm','person','tool'] if row['category']=='human' else ['robotic hand','robotic arm'])+concepts)
     native_cfg.update(video=row['video'],clip_id=row['case_id'],model_id=row['model'],reference_video=row['reference']['video'],reference_sha256=row['reference']['sha256'])
     if name in ('action_evidence','event_evidence','causal_evidence'):native_cfg.update(annotation=str(semantic(item,row,metrics[0],folder)),time_mapping='identity',metrics=list(metrics))
+    if item.get('reference_objects'):native_cfg['reference_objects']=item['reference_objects']['path']
     path=folder/'config.json';write(path,native_cfg)
     native_row=dict(row,prediction_id=row['model']+'__'+row['case_id'],reference_video=row['reference']['video'],reference_sha256=row['reference']['sha256'],observation_key=task['cache_key'])
     call=dict(task,backend=BACKENDS[name],metrics=list(metrics),metric=metrics[0] if metrics else None,row=native_row,config=str(path))

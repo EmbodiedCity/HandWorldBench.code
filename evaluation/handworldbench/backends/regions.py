@@ -28,6 +28,28 @@ def declared_reference_entities(config,reference_sha256):
     return clean_entities(entities),dict(requests=0,source='dataset_reference_entities',
                                        reference_sha256=reference_sha256,localization=copy.deepcopy(localization))
 
+def precomputed_reference_objects(path,reference_sha256):
+    """Load the reference object inventory, masks and per-frame geometry shipped with the dataset.
+
+    When a case provides `reference_objects`, the reference side of Entity Consistency and Trajectory
+    Accuracy uses these fixed observations; objects are not selected, localized or tracked again on the
+    reference video. The generated video is still observed with the configured models.
+    """
+    path=Path(path).resolve();data=read(path)
+    if data.get('reference_sha256')!=reference_sha256:raise ValueError('Reference objects: reference SHA mismatch')
+    entities=data.get('entities')
+    if not isinstance(entities,list) or not 1<=len(entities)<=6 or any(not isinstance(e,dict) or e.get('type')!='object' for e in entities):
+        raise ValueError('Reference objects require one to six object entities')
+    tracks=copy.deepcopy(data.get('tracks') or {})
+    if set(tracks)-{e['id'] for e in entities}:raise ValueError('Reference object tracks name unknown entities')
+    for series in tracks.values():
+        for record in series.values():
+            if record.get('mask'):
+                mask=(path.parent/record['mask']).resolve();mask.relative_to(path.parent)
+                if not mask.is_file():raise ValueError('Reference object mask missing: '+record['mask'])
+                record['mask']=str(mask)
+    return dict(entities=entities,tracks=tracks,geometry=data.get('geometry') or {},selection=dict(source='dataset_reference_objects'),localization={})
+
 def track(frames,entities,role,folder):
     import sam3_entity_backend
     folder=Path(folder);folder.mkdir(parents=True,exist_ok=True);receipt=folder/'tracks.json'
@@ -41,20 +63,23 @@ def objects(task,models,out):
     frames=dependency(task,'frames')['frames'];reference=dependency(task,'reference_frames');refs=reference['reference_images'];cfg=read(task['config']);root=Path(CONFIG['cache_root']);clock=time.monotonic()
     usage_before=dict(models.get('vlm_usage',{}))
     signature=dict(reference=reference['source']['sha256'],rgb=[f['decoded_rgb_sha256'] for f in refs],model=CONFIG['models']['vision'],segmentation=CONFIG['models']['sam3'],protocol='manipulated_objects')
-    declared=declared_reference_entities(cfg,reference['source']['sha256'])
+    preset=cfg.get('reference_objects')
+    declared=None if preset else declared_reference_entities(cfg,reference['source']['sha256'])
     if declared is not None:signature['reference_entities']=cfg['background']['reference_entities']
-    with cache_lock(root/'reference_objects',digest(signature)) as folder:
-        if (folder/'receipt.json').exists():refdata=read(folder/'receipt.json')
-        else:
-            observer=Observer(models,CONFIG['models']['vision'],'reference',CONFIG.get('batch',{}).get('object_localization',1))
-            if declared is None:
-                entities,selection,prompted,audit=select_and_localize(observer,refs,folder)
+    if preset:refdata=precomputed_reference_objects(preset,reference['source']['sha256'])
+    else:
+        with cache_lock(root/'reference_objects',digest(signature)) as folder:
+            if (folder/'receipt.json').exists():refdata=read(folder/'receipt.json')
             else:
-                entities,selection=declared
-                write(folder/'selection/reference_inventory.json',cfg['background']['reference_entities'])
-                prompted,_,audit=locate_objects(observer,refs,entities,folder/'localization',stride=4,workers=1,role='reference')
-            geometry={};tracks=clean_tracks(track(refs,prompted,'reference',folder/'tracking'),entities,refs,'reference',geometry_out=geometry) if entities else {}
-            refdata=dict(entities=entities,tracks=tracks,geometry=geometry,selection=selection,localization=audit);write(folder/'receipt.json',refdata)
+                observer=Observer(models,CONFIG['models']['vision'],'reference',CONFIG.get('batch',{}).get('object_localization',1))
+                if declared is None:
+                    entities,selection,prompted,audit=select_and_localize(observer,refs,folder)
+                else:
+                    entities,selection=declared
+                    write(folder/'selection/reference_inventory.json',cfg['background']['reference_entities'])
+                    prompted,_,audit=locate_objects(observer,refs,entities,folder/'localization',stride=4,workers=1,role='reference')
+                geometry={};tracks=clean_tracks(track(refs,prompted,'reference',folder/'tracking'),entities,refs,'reference',geometry_out=geometry) if entities else {}
+                refdata=dict(entities=entities,tracks=tracks,geometry=geometry,selection=selection,localization=audit);write(folder/'receipt.json',refdata)
     reference_usage={k:v-usage_before.get(k,0) for k,v in models.get('vlm_usage',{}).items()}
     entities=refdata['entities'];observer=Observer(models,CONFIG['models']['vision'],'prediction',CONFIG.get('batch',{}).get('object_localization',1))
     prompted,_,audit=locate_objects(observer,frames,entities,out/'object_localization',stride=4,workers=1,role='prediction')

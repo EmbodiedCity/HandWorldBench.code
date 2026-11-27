@@ -89,6 +89,8 @@ def prepare(args):
                 signature['implementation_protocol']='shared_dino_v1'
             if name=='object_tracks' and item['annotations'].get('background',{}).get('reference_entities'):
                 signature['entity_inventory_protocol']='reference_inventory_v1'
+            if name=='object_tracks' and item.get('reference_objects'):
+                signature['reference_objects']=item['reference_objects'].get('sha256')
             if name=='state_evidence' and 'state_regulation' in requested_metrics:
                 signature['state_regulation_protocol']=METRICS['state_regulation'].protocol
             if name=='reference_geometry':signature['geometry']=item.get('geometry')

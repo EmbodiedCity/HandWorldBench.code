@@ -349,6 +349,8 @@ Missing or low-confidence predicted points receive 0. Point scores are averaged 
 
 Entity Consistency includes hand instances with at least one valid reference point inside the image during the sampled interval. A hand that stays outside the image is outside the required entity population. Prediction misses for an eligible reference entity retain their zero-score penalty.
 
+Entity Consistency and Trajectory Accuracy compare the objects found in the generated video with a fixed set of reference objects shipped with the benchmark (`reference_objects/`: object list, masks and geometry on the 16 sampled reference frames). The reference side is therefore not re-observed: no objects are selected, localised or tracked on the reference video, and every run uses the same reference objects. The object-localisation model and SAM 3 run only on the generated video. A custom dataset without `reference_objects` falls back to selecting objects on its reference video.
+
 ### Score rules
 
 | Metric | Published score |
